@@ -1,0 +1,322 @@
+.logo {
+  width: 120px;
+  height: auto;
+  max-height: 50px;
+}
+
+/* Profile Image Styling */
+.profile-img {
+  width: 150px; /* Increased for main content */
+  height: 150px;
+  border-radius: 50%;
+  border: 2px solid #ddd;
+  margin-right: 10px;
+  object-fit: cover;
+}
+
+/* Adjust for Medium Screens */
+@media (max-width: 992px) {
+  .profile-img {
+    width: 100px;
+    height: 100px;
+  }
+}
+
+/* Adjust for Small Screens */
+@media (max-width: 768px) {
+  .profile-img {
+    width: 80px;
+    height: 80px;
+  }
+}
+
+/* Adjust for Very Small Screens */
+@media (max-width: 576px) {
+  .profile-img {
+    width: 60px;
+    height: 60px;
+  }
+}
+
+.flag-icon {
+  width: 20px;
+  height: auto;
+  margin-right: 5px;
+}
+
+/* Navbar */
+.navbar {
+  display: flex;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 90px; /* Increased Navbar Height */
+  min-height: 90px;
+  z-index: 1050;
+  background: #fff;
+  border-bottom: 1px solid #ddd;
+  padding: 10px 20px;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: nowrap; /* Prevent items from moving down */
+}
+
+/* Fix Navbar Items for Responsiveness */
+.navbar-right {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  flex-wrap: nowrap;
+}
+
+.notification-icon {
+  font-size: 24px;
+  cursor: pointer;
+}
+
+/* Sidebar */
+.sidebar {
+  position: fixed;
+  top: 90px;
+  left: 0;
+  width: 250px;
+  height: calc(100vh - 90px);
+  background: #ffffff;
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+  padding-top: 30px;
+  overflow-y: auto;
+  z-index: 1000;
+  transition: left 0.3s ease;
+}
+
+.sidebar.collapsed {
+  left: -250px;
+}
+
+/* Content Layout */
+.content {
+  margin-left: 250px;
+  margin-top: 100px; /* Adjusted for Navbar */
+  padding: 20px;
+  width: calc(100% - 250px);
+  min-height: 100vh;
+  background: #fff;
+  border-radius: 1px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.15);
+}
+
+/* Move Main Content Up */
+.main-content {
+  position: relative;
+  top: -20px; /* Moves Content Up */
+}
+
+/* Form Input Fields - Align Properly */
+.input-group input,
+.input-group select {
+  flex: 1; /* Ensure uniform width */
+  max-width: 400px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+.input-group input {
+  flex: 1; /* Ensures all fields take the same width */
+  max-width: 400px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+/* Fix the Three-Row Alignment */
+.form-row {
+  display: flex;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+
+.form-group {
+  flex: 1;
+  min-width: 200px; /* Ensures proper width */
+}
+
+/* Move "Add Team Member" Button to the Right */
+.add-team-btn {
+  margin-left: auto;
+  display: flex;
+  justify-content: flex-end;
+}
+
+/* Align Cancel & Save Buttons to the Right */
+.buttons-container {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 10px;
+}
+
+/* Responsive Fixes */
+@media (max-width: 992px) {
+  .content {
+    margin-left: 0;
+    width: 100%;
+  }
+
+  .button-group {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .profile-img {
+    width: 120px;
+    height: 120px;
+  }
+
+  .input-group {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .buttons-container {
+    flex-direction: row;
+    justify-content: flex-end;
+  }
+}
+
+@media (max-width: 768px) {
+  .navbar {
+    height: 70px;
+    padding: 10px;
+  }
+
+  .profile-img {
+    width: 100px;
+    height: 100px;
+  }
+
+  .buttons-container {
+    flex-direction: row;
+    justify-content: flex-end;
+  }
+}
+
+@media (max-width: 576px) {
+  .navbar {
+    flex-direction: row;
+    height: 60px;
+    padding: 5px 10px;
+  }
+
+  .profile-img {
+    width: 70px;
+    height: 70px;
+  }
+
+  .notification-icon {
+    font-size: 20px;
+  }
+
+  .content {
+    margin-top: 70px;
+    padding: 10px;
+  }
+}
+@media (max-width: 768px) {
+  .button-group {
+    display: flex;
+    justify-content: center; /* Center buttons in mobile */
+    align-items: center;
+    flex-wrap: wrap;
+    margin-top: 10px !important;
+  }
+  .button-group button {
+    width: auto; /* Prevent buttons from becoming too small */
+    min-width: 80px;
+    margin: 5px;
+  }
+}
+@media (max-width: 992px) {
+  .content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    margin: auto;
+    width: 90%;
+  }
+  .card {
+    width: 100%;
+    max-width: 95%;
+  }
+}
+@media (max-width: 768px) {
+  .navbar {
+    display: flex;
+    align-items: center;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    padding: 10px;
+  }
+  .navbar-nav {
+    flex-direction: row !important;
+    justify-content: space-between;
+    width: 100%;
+  }
+  .navbar .dropdown {
+    margin-left: auto;
+  }
+}
+@media (max-width: 768px) {
+  .row .col-12,
+  .row .col-md-6 {
+    width: 100%;
+  }
+}
+@media (max-width: 768px) {
+  .form-row {
+    display: flex;
+    flex-direction: column; /* Stack form fields vertically */
+    gap: 10px;
+  }
+
+  .form-group {
+    width: 100% !important; /* Make input fields full width */
+  }
+
+  .input-group input,
+  .input-group select {
+    width: 100% !important; /* Ensure inputs take full width */
+    max-width: none; /* Override max-width restriction */
+  }
+}
+@media (max-width: 768px) {
+  .navbar {
+    height: 60px !important; /* Reduce height for better fit */
+    padding: 5px 10px;
+  }
+
+  .content {
+    margin-top: 70px; /* Ensure content starts after navbar */
+  }
+
+  .navbar-right {
+    flex-wrap: nowrap;
+    justify-content: flex-end;
+  }
+
+  .profile-img {
+    width: 50px; /* Adjust profile image size */
+    height: 50px;
+  }
+}
+@media (max-width: 992px) {
+  .sidebar {
+    transition: transform 0.3s ease-in-out;
+    transform: translateX(0);
+  }
+
+  .sidebar.collapsed {
+    transform: translateX(-250px);
+    display: none;
+  }
+}

@@ -1,0 +1,726 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Responsive Navbar</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+      crossorigin="anonymous"
+    />
+
+    <link rel="stylesheet" href="styles.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+    />
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg bg-white shadow-sm px-3">
+  <div class="container-fluid">
+    <div class="row align-items-center w-100">
+      <!-- Left Section: Sidebar Toggle Button & Logo -->
+      <div class="col-auto d-flex align-items-center flex-shrink-0">
+        <button id="sidebarToggle" class="btn me-2 d-lg-none">
+          <i class="fa-solid fa-bars"></i>
+        </button>
+
+        <a class="navbar-brand d-flex align-items-center" href="#">
+          <img src="logo.png" class="logo img-fluid" alt="Logo" style="height: 50px" />
+        </a>
+      </div>
+
+      <!-- Center Section: Title-->
+      <div class="col ms-md-3 ps-md-3 ms-1 ps-1 w-100">
+        <div class="d-flex flex-column flex-wrap w-100">
+          <h6 class="mb-0 fw-bold hide-in-responsive">Add Team Member</h6>
+          <small class="text-muted d-block w-100 ">Team Member > Team Members > Add Team Member</small>
+        </div>
+      </div>
+
+      <!-- Right Section: Navbar Icons for Desktop -->
+      <div class="col-auto d-none d-lg-flex align-items-center">
+        <!-- Language Selector -->
+        <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown">
+          <img src="US.png" class="flag-icon" alt="EN" /> EN(UK)
+        </button>
+        <ul class="dropdown-menu">
+          <li><a class="dropdown-item" href="#">EN(US)</a></li>
+          <li><a class="dropdown-item" href="#">FR</a></li>
+        </ul>
+
+        <!-- Notification & Settings Icons -->
+        <button class="btn"><i class="bi bi-bell"></i></button>
+        <button class="btn"><i class="bi bi-gear"></i></button>
+
+        <!-- Profile Section -->
+        <div class="dropdown">
+          <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown">
+            <img src="profile.png" class="rounded-circle profile-img-navbar" alt="User" style="height: 40px; width: 40px" />
+            <span class="ms-2">Megan Roberts</span>
+          </button>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="#">Profile</a></li>
+            <li><a class="dropdown-item" href="#">Settings</a></li>
+            <li><a class="dropdown-item" href="#">Logout</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Right Section: Navbar Button for Mobile -->
+      <div class="col-auto d-flex align-items-center d-lg-none ms-auto">
+        <button id="navbarDropdownBtn" class="btn">
+          <i class="fa-solid fa-bars"></i>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Responsive Dropdown Menu for Mobile -->
+  <div id="navbarDropdownMenu" class="dropdown-menu dropdown-menu-end d-lg-none">
+    <!-- Language Selector -->
+    <button class="btn dropdown-toggle w-100" type="button" data-bs-toggle="dropdown">
+      <img src="US.png" class="flag-icon" alt="EN" /> EN(UK)
+    </button>
+    <ul class="dropdown-menu">
+      <li><a class="dropdown-item" href="#">EN(US)</a></li>
+      <li><a class="dropdown-item" href="#">FR</a></li>
+    </ul>
+
+    <!-- Notification & Settings Icons -->
+    <button class="btn w-100"><i class="bi bi-bell"></i></button>
+    <button class="btn w-100"><i class="bi bi-gear"></i></button>
+
+    <!-- Profile Section -->
+    <div class="dropdown">
+      <button class="btn dropdown-toggle w-100" type="button" data-bs-toggle="dropdown">
+        <img src="profile.png" class="rounded-circle profile-img" alt="User" style="height: 40px; width: 40px" />
+        <span class="ms-2">Megan Roberts</span>
+      </button>
+      <ul class="dropdown-menu">
+        <li><a class="dropdown-item" href="#">Profile</a></li>
+        <li><a class="dropdown-item" href="#">Settings</a></li>
+        <li><a class="dropdown-item" href="#">Logout</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+    <!-- Layout: Sidebar + Content -->
+    <div class="d-flex">
+      <!-- Sidebar -->
+      <nav
+        id="sidebar"
+        class="sidebar bg-white shadow"
+        style="border-right: 1px solid rgb(186, 186, 186) !important"
+      >
+        <!-- New Sidebar Toggle Button -->
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarDropdownMenu">
+        <span class="navbar-toggler-icon"></span>
+        </button>
+
+
+        <ul class="nav flex-column">
+          <li class="nav-item">
+            <a class="nav-link" href="#">
+              <i class="fa-solid fa-chart-line me-2"></i> DASHBOARD
+            </a>
+          </li>
+          <li class="nav-item">
+            <a
+              class="nav-link collapsed"
+              data-bs-toggle="collapse"
+              href="#teamMenu"
+            >
+              <i class="fa-solid fa-users me-2"></i> Team MEMBERS
+              <span class="ms-auto">▼</span>
+            </a>
+            <ul class="collapse show list-unstyled ps-4" id="teamMenu">
+              <li>
+                <a class="nav-link active text-primary" href="#">
+                  <i class="fa-solid fa-people-group me-2"></i> Team Members</a
+                >
+              </li>
+              <li>
+                <a class="nav-link" href="#">
+                  <i class="fa-solid fa-certificate me-2"></i> Certification</a
+                >
+              </li>
+            </ul>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">
+              <i class="fa-solid fa-folder-open me-2"></i> PROJECTS
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">
+              <i class="fa-solid fa-user-tie me-2"></i> CLIENTS
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">
+              <i class="fa-solid fa-graduation-cap me-2"></i> LEARNING PATHS
+            </a>
+          </li>
+        </ul>
+      </nav>
+      <!-- Main Content -->
+      <div class="content p-1">
+        <div class="card shadow rounded-0 mt-4 ms-4">
+          <div class="card-body">
+          <!-- <div class="card" style="height: 500px"> -->
+          <h1 class="h4 ms-3">Add Team Member</h1>
+          <h8 class="ms-3 d-block mt-2 responsive-hide">Add Team Member to Organization.</h8>
+          <!-- <div class="button-group"> -->
+              <div class="d-flex justify-content-end me-3 mt-0 button container responsive-buttons" style="position: absolute; right: 20px; top: 20px;">
+            <!-- <button class="cancel-btn">CANCEL</button> -->
+            <button type="button" class="btn btn-outline-danger me-2">CANCEL</button>
+            <button class="btn btn-primary" type="submit">SAVE</button>
+          </div> 
+          <hr class="flex-grow-1 ms-3" /> 
+          <div class="container mt-4">
+            <div class="row align-items-center">
+              <!-- Left Side: Profile Image -->
+              <div class="col-md-2 text-center">
+                <img
+                  src="profile-placeholder.png"
+                  alt="Profile"
+                  class="profile-img-main"
+                />
+              </div>
+
+              <!-- Right Side: Input Fields -->
+              <div class="col-md-9">
+                <form>
+                  <div class="row mb-3">
+                    <div class="col-md-6">
+                      <label for="firstName" class="form-label"
+                        >First Name<span class="text-danger">*</span></label
+                      >
+
+                      <input
+                        type="text"
+                        class="form-control"
+                        id="firstName"
+                        placeholder="Enter first name"
+                        required
+                      />
+                    </div>
+                    <div class="col-md-6">
+                      <label for="firstName" class="form-label"
+                        >Last Name<span class="text-danger">*</span></label
+                      >
+                      <input
+                        type="text"
+                        class="form-control"
+                        id="lastName"
+                        placeholder="Enter last name"
+                      />
+                    </div>
+                  </div>
+                  <div class="row mb-3">
+                    <div class="col-md-12">
+                      <label for="firstName" class="form-label"
+                        >Email<span class="text-danger">*</span></label
+                      >
+                      <input
+                        type="email"
+                        class="form-control"
+                        id="email"
+                        placeholder="Enter email"
+                      />
+                    </div>
+                  </div>
+                </form>
+              </div>
+            </div>
+
+            <div class="row m-0 p-0">
+              <div class="col-3">
+                <div class="container mt-4">
+                  <label for="ID" class="form-label">Team Member Id</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="ID"
+                    placeholder="Enter Id"
+                  />
+                </div>
+              </div>
+              <div class="col-3">
+                <div class="container mt-4">
+                  <label for="Designation" class="form-label"
+                    >Designation</label
+                  >
+                  <select
+                    class="form-select custom-dropdown custom-dropdown"
+                    id="Designation"
+                  >
+                    <option selected>Select Designation</option>
+                    <option value="admin">Software Developer</option>
+                    <option value="editor">Project Manager</option>
+                    <option value="viewer">Intern</option>
+                  </select>
+                </div>
+              </div>
+              <div class="col-3">
+                <div class="container mt-4">
+                  <label for="Role" class="form-label">Role</label>
+                  <select
+                    class="form-select custom-dropdown custom-dropdown"
+                    id="Role"
+                  >
+                    <option selected>Select Role</option>
+                    <option value="admin">Admin</option>
+                    <option value="editor">Editor</option>
+                    <option value="viewer">Viewer</option>
+                  </select>
+                </div>
+              </div>
+              <div class="col-3">
+                <div class="container mt-4">
+                  <label for="department" class="form-label">Department</label>
+                  <select
+                    class="form-select custom-dropdown custom-dropdown"
+                    id="department"
+                  >
+                    <option selected>Select Department</option>
+                    <option value="HR">HR</option>
+                    <option value="IT">IT</option>
+                    <option value="Finance">Finance</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+
+            <!--2nd Row-->
+            <div class="row m-0 p-0">
+              <div class="col-3">
+                <div class="container mt-4">
+                  <label for="Reporting Manager" class="form-label"
+                    >Reporting Manager</label
+                  >
+                  <select class="form-select custom-dropdown" id="department">
+                    <option selected>Select Reporting Manager</option>
+                    <option value="John">John</option>
+                    <option value="Sam">Sam</option>
+                    <option value="Leena">Leena</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="col-3">
+                <div class="container mt-4">
+                  <label for="joiningDate" class="form-label"
+                    >Joining Date</label
+                  >
+                  <input type="date" class="form-control" id="joiningDate" />
+                  <!-- <input type="date" class="form-control custom-date" id="joiningDate" placeholder="dd-mm-yyyy"> -->
+                </div>
+              </div>
+
+              <div class="col-3">
+                <div class="container mt-4">
+                  <label for="Billing Status" class="form-label"
+                    >Billing Status</label
+                  >
+                  <select
+                    class="form-select custom-dropdown"
+                    id="Billing Status"
+                  >
+                    <option selected>Select Billing Status</option>
+                    <!-- <option value="admin">HR</option>
+                <option value="editor">IT</option>
+                <option value="viewer">Finance</option> -->
+                  </select>
+                </div>
+              </div>
+              <div class="col-3">
+                <div class="container mt-4">
+                  <label for="Availability Status" class="form-label"
+                    >Availability Status</label
+                  >
+                  <select
+                    class="form-select custom-dropdown"
+                    id="Availability Status"
+                  >
+                    <option selected>Select Availability Status</option>
+                    <!-- <option value="admin">HR</option>
+                <option value="editor">IT</option>
+                <option value="viewer">Finance</option> -->
+                  </select>
+                </div>
+              </div>
+            </div>
+            <!--3rd Row-->
+            <div class="row m-0 p-0">
+              <!--Month & Year-->
+              <div class="col-3">
+                <div class="container mt-4">
+                  <label for="experienceYears" class="form-label"
+                    >Total Experience</label
+                  >
+                  <div class="d-flex gap-2">
+                    <input
+                      type="number"
+                      class="form-control"
+                      id="experienceYears"
+                      placeholder="Years"
+                      min="0"
+                    />
+                    <input
+                      type="number"
+                      class="form-control"
+                      id="experienceMonths"
+                      placeholder="Months"
+                      min="0"
+                      max="11"
+                    />
+                  </div>
+                </div>
+              </div>
+              <div class="col-3">
+                <div class="container mt-4">
+                  <label for="Cluster" class="form-label">Cluster</label>
+                  <select
+                    class="form-select custom-dropdown"
+                    id="Billing Status"
+                  >
+                    <option selected>Select Cluster</option>
+                    <!-- <option value="admin">HR</option>
+                <option value="editor">IT</option>
+                <option value="viewer">Finance</option> -->
+                  </select>
+                </div>
+              </div>
+
+              <div class="col-3">
+                <div class="container mt-4">
+                  <label for="availableFrom" class="form-label"
+                    >Available From</label
+                  >
+                  <div class="input-group">
+                    <input
+                      type="date"
+                      class="form-control"
+                      id="availableFrom"
+                      placeholder="Select Date"
+                    />
+                    <!-- <span class="input-group-text"><i class="fa-solid fa-calendar"></i></span> -->
+                  </div>
+                </div>
+              </div>
+              <div class="col-3">
+                <div class="container mt-4">
+                  <label for="Tags" class="form-label">Tags</label>
+                  <select class="form-select custom-dropdown" id="Tags">
+                    <option selected>Select Tags</option>
+                    <!-- <option value="admin">HR</option>
+                <option value="editor">IT</option>
+                <option value="viewer">Finance</option> -->
+                  </select>
+                </div>
+              </div>
+            </div>
+
+            <!--3rd row(Bio)-->
+
+            <!-- <div class="row m-2 p-1 mt-2">
+          <div class="col-12">
+            <label for="lastName" class="form-label">Bio</label>
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="Bio"
+                      placeholder="Enter last name"
+                    />
+          </div>
+
+        </div> -->
+
+            <div class="col-md-12">
+              <div class="container mt-0 p-4">
+                <!-- Bio Label -->
+                <label for="bio" class="form-label">Bio</label>
+
+                <!-- Toolbar -->
+                <div class="btn-toolbar mb-2 border p-2 bg-light">
+                  <button class="btn btn-light" title="Font">
+                    <i class="fa-solid fa-font"></i> Normal
+                  </button>
+                  <button class="btn btn-light" title="Sans-serif">
+                    <i class="fa-solid fa-text-height"></i> Sans-serif
+                  </button>
+                  <button class="btn btn-light" title="Increase Size">
+                    <i class="fa-solid fa-angle-up"></i>
+                  </button>
+                  <button class="btn btn-light" title="Decrease Size">
+                    <i class="fa-solid fa-angle-down"></i>
+                  </button>
+                  <button class="btn btn-light" title="Bold">
+                    <i class="fa-solid fa-bold"></i>
+                  </button>
+                  <button class="btn btn-light" title="Italic">
+                    <i class="fa-solid fa-italic"></i>
+                  </button>
+                  <button class="btn btn-light" title="Underline">
+                    <i class="fa-solid fa-underline"></i>
+                  </button>
+                  <button class="btn btn-light" title="Strikethrough">
+                    <i class="fa-solid fa-strikethrough"></i>
+                  </button>
+                  <button class="btn btn-light" title="Strikethrough">
+                    <i class="fa-sharp fa-solid fa-quote-right"></i>
+                  </button>
+                  <button class="btn btn-light" title="Strikethrough">
+                    <i class="fa-solid fa-list"></i>
+                  </button>
+                  <button class="btn btn-light" title="Align Left">
+                    <i class="fa-solid fa-align-left"></i>
+                  </button>
+                  <button class="btn btn-light" title="Align Center">
+                    <i class="fa-solid fa-align-center"></i>
+                  </button>
+                  <button class="btn btn-light" title="Align Right">
+                    <i class="fa-solid fa-align-right"></i>
+                  </button>
+                </div>
+
+                <!-- Bio Text Area -->
+                <textarea
+                  class="form-control"
+                  id="bio"
+                  rows="5"
+                  placeholder="Enter your bio..."
+                ></textarea>
+              </div>
+            </div>
+
+            <!-- Upload CV Section -->
+<div class="col-lg-6 col-md-12 mt-0 ps-lg-4">
+  <label class="form-label">Upload CV</label>
+
+  <div class="position-relative">
+    <textarea
+      class="form-control pe-5"
+      id="cvUploadText"
+      rows="2"
+      placeholder="Drag and Drop file here or Choose file to upload"
+      readonly
+    ></textarea>
+
+    <input type="file" id="cvUpload" class="d-none" />
+
+    <button
+      class="btn btn-primary position-absolute top-50 end-0 translate-middle-y me-2 m-0"
+      onclick="document.getElementById('cvUpload').click();"
+    >
+      <i class="fa-solid fa-upload"></i> Upload CV
+    </button>
+  </div>
+</div>
+
+<div class="container mt-4">
+  <!-- Add Skill Sets Heading with Line -->
+  <div class="d-flex align-items-center mb-3">
+    <h5 class="mb-0">Add Skill Sets</h5>
+    <hr class="flex-grow-1 ms-3" />
+  </div>
+
+  <!-- Skill Sets Dropdown -->
+  <div class="mt-1">
+    <label class="form-label">Skill Sets</label>
+    <select class="form-select custom-dropdown">
+      <option>Select Skill Sets</option>
+    </select>
+  </div>
+
+  <!-- Skill Set Table -->
+  <div class="container mt-4 ps-0">
+    <div class="border rounded p-3 bg-light">
+      <!-- Table Header -->
+      <div class="row fw-bold text-secondary mb-2 d-none d-md-flex">
+        <div class="col-md-2 text-center"></div>
+        <div class="col-md-3 text-center">Level</div>
+        <div class="col-md-2 text-center">Experience Required</div>
+        <div class="col-md-2 text-center">Assessed By</div>
+        <div class="col-md-2 text-center">Assessed On</div>
+        <div class="col-md-1"></div>
+      </div>
+
+      <!-- Skill Row (Responsive) -->
+      <div class="row align-items-center mb-4">
+        <div class="col-12 col-md-2 fw-bold text-center">HTML</div>
+        <div class="col-12 col-md-3">
+          <select class="form-select custom-dropdown">
+            <option selected>Select Experience</option>
+          </select>
+        </div>
+        <div class="col-12 col-md-2 d-flex">
+          <select class="form-select custom-dropdown me-2">
+            <option selected>Year</option>
+          </select>
+          <select class="form-select custom-dropdown">
+            <option selected>Month</option>
+          </select>
+        </div>
+        <div class="col-12 col-md-2">
+          <select class="form-select custom-dropdown">
+            <option selected>Select Assessed By</option>
+          </select>
+        </div>
+        <div class="col-12 col-md-2 position-relative">
+          <input type="date" class="form-control" />
+        </div>
+        <div class="col-12 col-md-1 text-center mt-2 mt-md-0">
+          <i class="fa-solid fa-trash text-danger"></i>
+        </div>
+      </div>
+
+                 <div class="row fw-bold text-secondary mb-2 d-none d-md-flex">
+        <div class="col-md-2 text-center"></div>
+        <div class="col-md-3 text-center">Level</div>
+        <div class="col-md-2 text-center">Experience Required</div>
+        <div class="col-md-2 text-center">Assessed By</div>
+        <div class="col-md-2 text-center">Assessed On</div>
+        <div class="col-md-1"></div>
+      </div>
+
+      <!-- Skill Row (Responsive) -->
+      <div class="row align-items-center mb-4">
+        <div class="col-12 col-md-2 fw-bold text-center">Python</div>
+        <div class="col-12 col-md-3">
+          <select class="form-select custom-dropdown">
+            <option selected>Select Experience</option>
+          </select>
+        </div>
+        <div class="col-12 col-md-2 d-flex">
+          <select class="form-select custom-dropdown me-2">
+            <option selected>Year</option>
+          </select>
+          <select class="form-select custom-dropdown">
+            <option selected>Month</option>
+          </select>
+        </div>
+        <div class="col-12 col-md-2">
+          <select class="form-select custom-dropdown">
+            <option selected>Select Assessed By</option>
+          </select>
+        </div>
+        <div class="col-12 col-md-2 position-relative">
+          <input type="date" class="form-control" />
+        </div>
+        <div class="col-12 col-md-1 text-center mt-2 mt-md-0">
+          <i class="fa-solid fa-trash text-danger"></i>
+        </div>
+      </div>
+
+
+                 <div class="row fw-bold text-secondary mb-2 d-none d-md-flex">
+        <div class="col-md-2 text-center"></div>
+        <div class="col-md-3 text-center">Level</div>
+        <div class="col-md-2 text-center">Experience Required</div>
+        <div class="col-md-2 text-center">Assessed By</div>
+        <div class="col-md-2 text-center">Assessed On</div>
+        <div class="col-md-1"></div>
+      </div>
+
+      <!-- Skill Row (Responsive) -->
+      <div class="row align-items-center mb-4">
+        <div class="col-12 col-md-2 fw-bold text-center">JavaScript</div>
+        <div class="col-12 col-md-3">
+          <select class="form-select custom-dropdown">
+            <option selected>Select Experience</option>
+          </select>
+        </div>
+        <div class="col-12 col-md-2 d-flex">
+          <select class="form-select custom-dropdown me-2">
+            <option selected>Year</option>
+          </select>
+          <select class="form-select custom-dropdown">
+            <option selected>Month</option>
+          </select>
+        </div>
+        <div class="col-12 col-md-2">
+          <select class="form-select custom-dropdown">
+            <option selected>Select Assessed By</option>
+          </select>
+        </div>
+        <div class="col-12 col-md-2 position-relative">
+          <input type="date" class="form-control" />
+        </div>
+        <div class="col-12 col-md-1 text-center mt-2 mt-md-0">
+          <i class="fa-solid fa-trash text-danger"></i>
+        </div>
+      </div>
+
+                 <div class="row fw-bold text-secondary mb-2 d-none d-md-flex">
+        <div class="col-md-2 text-center"></div>
+        <div class="col-md-3 text-center">Level</div>
+        <div class="col-md-2 text-center">Experience Required</div>
+        <div class="col-md-2 text-center">Assessed By</div>
+        <div class="col-md-2 text-center">Assessed On</div>
+        <div class="col-md-1"></div>
+      </div>
+
+      <!-- Skill Row (Responsive) -->
+      <div class="row align-items-center mb-4">
+        <div class="col-12 col-md-2 fw-bold text-center">Bootstrap</div>
+        <div class="col-12 col-md-3">
+          <select class="form-select custom-dropdown">
+            <option selected>Select Experience</option>
+          </select>
+        </div>
+        <div class="col-12 col-md-2 d-flex">
+          <select class="form-select custom-dropdown me-2">
+            <option selected>Year</option>
+          </select>
+          <select class="form-select custom-dropdown">
+            <option selected>Month</option>
+          </select>
+        </div>
+        <div class="col-12 col-md-2">
+          <select class="form-select custom-dropdown">
+            <option selected>Select Assessed By</option>
+          </select>
+        </div>
+        <div class="col-12 col-md-2 position-relative">
+          <input type="date" class="form-control" />
+        </div>
+        <div class="col-12 col-md-1 text-center mt-2 mt-md-0">
+          <i class="fa-solid fa-trash text-danger"></i>
+        </div>
+      </div>
+
+                </div>
+              </div>
+              </div>
+              <!-- </div> -->
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </section>
+    </div>
+    </div>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+      crossorigin="anonymous"
+    ></script>
+    <script src="script.js"></script>
+
+  </body>
+</html>
